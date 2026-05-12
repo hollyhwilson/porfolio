@@ -49,24 +49,6 @@
 
 
 <style>
-    .card {
-        display: flex;
-        flex-direction: column;
-        background: var(--color-surface);
-        border-radius: var(--radius-md);
-        box-shadow: var(--shadow-md);
-        overflow: hidden;
-        height: 600px;
-        transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInSlide 0.8s ease forwards;
-    }
-
-    .card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-lg);
-    }
 
     .image-wrapper {
         display: flex;

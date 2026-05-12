@@ -1,82 +1,79 @@
 <script>
-    import { asset } from '$app/paths';
     import Navigation from './Navigation.svelte';
 </script>
 
-
 <header class="header">
-    <div class="logo-area">
-        <img src={asset("/logo.png")} alt="Starter Kit Logo" />
-        <h1>Starter Kit</h1>
+
+    <div class="title-group">
+        <h1>Holly</h1>
+        <p class="status">web portfolio</p>
     </div>
+
     <Navigation />
+
 </header>
 
-
 <style>
+.header {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 2rem;
+
+    background: #0b0b0f;
+
+    border-bottom: 2px solid #2a1f3d;
+}
+
+/* REMOVE noise completely */
+/* REMOVE header::before */
+
+/* LEFT TITLE BLOCK */
+.title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.title-group h1 {
+    margin: 0;
+
+    font-family: 'Anton', sans-serif;
+    font-size: 2rem;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: #f2f2f2;
+
+    background: #111114;
+    border: 2px solid #3a2b55;
+
+    padding: 0.25rem 0.75rem;
+
+    display: inline-block;
+}
+
+.status {
+    margin: 0;
+
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: rgba(255,255,255,0.5);
+}
+
+/* MOBILE STACK */
+@media (max-width: 768px) {
     .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 var(--space-lg);
-        background-color: var(--color-surface);
-        box-shadow: var(--shadow-md);
-        border-bottom: var(--border-default);
-        position: relative;
-        z-index: 100;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
     }
-
-    .logo-area {
-        display: flex;
-        align-items: center;
-        gap: var(--space-sm);
-        font-family: var(--font-heading);
-    }
-
-    .logo-area img {
-        width: 96px;
-        height: auto;
-        border-radius: var(--radius-sm);
-        box-shadow: var(--shadow-sm);
-    }
-
-    .logo-area h1 {
-        margin: 0;
-        font-size: var(--font-xxl);
-        font-weight: 700;
-        background: var(--gradient-brand);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        line-height: 1;
-        animation: fadeInTitle 0.6s ease forwards;
-    }
-
-    @keyframes fadeInTitle {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @media (max-width: 768px) {
-        .header {
-            flex-direction: column;
-            align-items: flex-start;
-            padding: var(--space-sm);
-        }
-
-        .logo-area {
-            justify-content: center;
-            width: 100%;
-        }
-
-        .logo-area h1 {
-            font-size: var(--font-lg);
-        }
-    }
+}
 </style>

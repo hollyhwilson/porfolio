@@ -24,31 +24,6 @@
 
 
 <style>
-    .philosophy-card {
-        width: 180px;
-        height: 220px;
-        perspective: 1000px;
-        position: relative;
-        transition: transform 0.6s;
-    }
-
-    .card-face {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: var(--radius-md);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: var(--space-sm);
-        box-shadow: var(--shadow-sm);
-        backface-visibility: hidden;
-        background: var(--color-surface);
-        color: var(--text-primary);
-        text-align: center;
-        transition: transform 0.6s ease;
-    }
 
     .front {
         z-index: 2;
@@ -99,12 +74,6 @@
     }
 
     @media (max-width: 480px) {
-        .philosophy-card {
-            width: 100%;
-            height: auto;
-        }
-        .card-face {
-            padding: var(--space-md);
-        }
+        
     }
 </style>

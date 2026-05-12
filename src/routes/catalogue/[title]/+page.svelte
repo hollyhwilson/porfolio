@@ -88,47 +88,63 @@
 
 <style>
 	.item-detail {
-		position: relative;
-		padding: var(--space-lg) var(--space-md);
-		display: flex;
-		justify-content: center;
-		align-items: flex-start;
-		background-image: url('/images/backgrounds/kanji-grid.png');
-        background-size: 200px;
-        background-repeat: repeat;
-        background-color: rgba(255, 255, 255, 0.85);
-	}
+    position: relative;
+
+    padding: 3rem 1.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    background: #0b0a10; /* solid base */
+
+    color: #f2f2f2;
+}
 	
 	.detail-content {
-		max-width: 720px;
-		margin: 0 auto;
-		text-align: left; /* Left-align text so that tags wrap naturally */
-		padding: var(--space-md) var(--space-sm);
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-md);
-	}
+    max-width: 720px;
+    width: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
 
 	.hero-image {
-		width: 100%;
-		max-height: 350px; /* Slightly smaller to reduce whitespace */
-		object-fit: cover;
-		border-radius: var(--radius-lg);
-		margin-bottom: var(--space-md);
-	}
+    width: 100%;
+    max-height: 420px;
+
+    object-fit: cover;
+
+    border: 2px solid #2a1f3d;
+
+    border-radius: 0px; /* important: remove softness */
+}
 
 	.detail-content h1 {
-		margin: 0; /* Remove default margins */
-		font-size: var(--font-xxl);
-		line-height: 1.2;
-	}
+    margin: 0;
+
+    font-family: 'Anton', sans-serif;
+
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: #ffffff;
+}
 
 	.category {
-		font-weight: bold;
+		margin: 0;
+
+		font-size: 0.75rem;
+
+		letter-spacing: 2px;
 		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		color: var(--text-secondary);
-		margin: 0; /* Keep it tight under the heading */
+
+		color: rgba(185, 167, 255, 0.55);
 	}
 
 	.description {
@@ -180,18 +196,7 @@
 		justify-items: center;
 	}
 
-	/* Ensure button styling doesn’t interfere */
-	.card-button {
-		all: unset; /* Remove default button styles */
-		cursor: pointer;
-		display: block;
-		text-align: inherit;
-	}
-
-	.card-button:focus-visible {
-		outline: 2px solid var(--color-accent);
-		outline-offset: 4px;
-	}
+	
 
 	/* Mobile adjustments */
 	@media (max-width: 768px) {

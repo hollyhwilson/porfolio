@@ -22,199 +22,70 @@
     }
 </script>
 
-
 <svelte:head>
-    <title>Starter Kit</title>
+    <title>HOLLY WILSON</title>
 </svelte:head>
 
+<section class="home">
+    <div class="hero">
+        <h1>HOLLY WILSON</h1>
+        <p>portfolio / design / experiments / code</p>
+    </div>
 
-<!-- Page Container -->
-<div class="home-container">
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Live Mindfully. Learn Purposefully.</h1>
-        <p class="subheading">
-            Inspired by the 7 Virtues of Bushidō and the 11 Principles of the Shinobi.
-        </p>
-        <button class="inspire-button" on:click={openQuoteModal}>
-            Find Inspiration
-        </button>
-    </section>
-
-    <!-- Featured Catalogue Section -->
-    <section class="featured">
-        <h2>Featured Practices</h2>
-        <div class="card-grid">
-            {#each featuredItems as item, index}
-                <button
-					type="button"
-					class="card-button"
-					on:click={() => goto(resolve('/catalogue/[title]', { title: item.title }))}
-					aria-label={`View details for ${item.title}`}
-				>
-                    <CatalogueCard
-                        title={item.title}
-                        description={item.description}
-                        image={item.image}
-                        category={item.category}
-                        tags={item.tags}
-                        animationDelay={index * 80}
-                    />
-                </button>
-            {/each}
-        </div>
-        <a class="browse-link" href="{resolve('/catalogue')}">Browse Full Catalogue →</a>
-    </section>
-
-    <!-- About Teaser Section -->
-    <section class="about-teaser">
-        <h2>Why This Matters</h2>
-        <p>
-            This project blends timeless wisdom with modern habits — from Stoic journaling to Shinobi adaptability.
-            Whether you seek health, discipline, or mindfulness, our tools are here to guide you.
-        </p>
-        <a href="{resolve('/about')}" class="learn-more">Learn more →</a>
-    </section>
-
-    <!-- Quote Modal -->
-    <Modal
-        bind:isOpen={showQuoteModal}
-        {...$currentQuote}
-        onClose={() => (showQuoteModal = false)}
-    />
-</div>
-
+    <div class="links">
+        <a href="/catalogue">View Work</a>
+        <a href="/about">About</a>
+    </div>
+</section>
 
 <style>
-    .home-container {
+    .home {
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
-        gap: var(--space-xl);
-    }
+        justify-content: center;
+        align-items: center;
 
-    /* Hero Section */
-    .hero {
+        background: #0b0a10;
+        color: #f2f2f2;
         text-align: center;
-        padding: var(--space-xl) var(--space-md);
-        border-radius: var(--radius-md);
-        box-shadow: var(--shadow-sm);
-        background-image: url('/images/backgrounds/zen-hero.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-blend-mode: overlay;
-        background-color: rgba(255, 255, 255, 0.75);
     }
 
     .hero h1 {
-        font-size: var(--font-xxl);
-        font-family: var(--font-heading);
-        margin-bottom: var(--space-sm);
+        font-family: Impact, Anton, sans-serif;
+        font-size: clamp(3rem, 6vw, 6rem);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        border: 2px solid rgba(255,255,255,0.15);
+        padding: 1rem 2rem;
+        background: #0e0b14;
     }
 
-    .subheading {
-        font-size: var(--font-lg);
-        font-family: var(--font-body);
-        color: var(--text-secondary);
-        margin-bottom: var(--space-md);
+    .hero p {
+        margin-top: 1rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        opacity: 0.7;
     }
 
-    .inspire-button {
-        padding: var(--space-sm) var(--space-lg);
-        background-color: var(--color-accent);
-        color: var(--text-contrast);
-        font-size: var(--font-base);
-        font-weight: 600;
-        border: none;
-        border-radius: var(--radius-sm);
-        cursor: pointer;
-        transition: background-color var(--transition-fast);
+    .links {
+        margin-top: 2rem;
+        display: flex;
+        gap: 1rem;
     }
 
-    .inspire-button:hover,
-    .inspire-button:focus {
-        background-color: var(--color-highlight);
-    }
-
-    /* Featured Section */
-    .featured {
-        padding: 0 var(--space-md);
-        background-image: url('/images/backgrounds/rice-texture.png');
-        background-size: 200px;
-        background-repeat: repeat;
-        background-color: rgba(255, 255, 255, 0.85);
-    }
-
-    .featured h2 {
-        text-align: center;
-        font-family: var(--font-heading);
-        font-size: var(--font-xl);
-        margin-bottom: var(--space-lg);
-    }
-
-	/* Ensure button styling doesn’t interfere */
-	.card-button {
-		all: unset; /* Remove default button styles */
-		cursor: pointer;
-		display: block;
-		text-align: inherit;
-	}
-
-	.card-button:focus-visible {
-		outline: 2px solid var(--color-accent);
-		outline-offset: 4px;
-	}
-
-    .card-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: var(--space-lg);
-        margin-bottom: var(--space-md);
-    }
-
-    .browse-link {
-        display: block;
-        text-align: center;
-        margin-top: var(--space-md);
-        font-weight: 500;
+    .links a {
+        padding: 0.6rem 1rem;
+        border: 2px solid #2a1f3d;
         text-decoration: none;
-        color: var(--color-accent);
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        background: #0e0b14;
     }
 
-    /* About Teaser */
-    .about-teaser {
-        text-align: center;
-        padding: var(--space-lg) var(--space-md);
-        background-color: var(--color-background);
-        border-top: var(--border-default);
-        background: linear-gradient(to top, var(--color-surface), transparent);
-        background-image: url('/images/backgrounds/scroll-teaser.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-blend-mode: overlay;
-        background-color: rgba(255, 255, 255, 0.75);
-    }
-
-    .about-teaser h2 {
-        font-family: var(--font-heading);
-        margin-bottom: var(--space-sm);
-    }
-
-    .about-teaser p {
-        font-size: var(--font-base);
-        color: var(--text-secondary);
-        max-width: 60ch;
-        margin: 0 auto var(--space-sm) auto;
-    }
-
-    .learn-more {
-        font-size: var(--font-sm);
-        color: var(--color-accent);
-        text-decoration: none;
-    }
-
-    .learn-more:hover {
-        text-decoration: underline;
+    .links a:hover {
+        background: #1a1025;
+        border-color: #7b5cff;
     }
 </style>

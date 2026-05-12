@@ -55,7 +55,7 @@
     .nav ul {
         display: flex;
         flex-wrap: wrap;
-        gap: var(--space-md);
+        gap: 0.5rem;
         list-style: none;
         margin: 0;
         padding: 0;
@@ -70,50 +70,37 @@
     .nav-item:nth-child(3) { animation-delay: 0.6s; }
     .nav-item:nth-child(4) { animation-delay: 0.8s; }
 
-    .nav a {
-        position: relative;
-        font-family: var(--font-body);
-        font-size: var(--font-lg);
-        font-weight: 600;
-        color: var(--text-primary);
-        padding: var(--space-xs) var(--space-sm);
-        text-decoration: none;
-        transition: color var(--transition-fast);
-    }
+   .nav a {
+    font-family: 'Space Grotesk', sans-serif;
 
-    .nav a::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 2px;
-        width: 100%;
-        background: var(--color-secondary);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform var(--transition-fast);
-    }
+    font-size: 0.85rem;
+    font-weight: 600;
 
-    .nav a:hover::after,
-    .nav a:focus::after {
-        transform: scaleX(1);
-    }
+    letter-spacing: 1px;
+    text-transform: uppercase;
 
-    .nav a:hover,
-    .nav a:focus {
-        color: var(--color-secondary);
-    }
+    color: #eaeaea;
 
-    .nav a.active {
-        color: var(--color-primary);
-    }
+    background: transparent;
 
-    .nav a.active::after {
-        transform: scaleX(1);
-        background: var(--gradient-brand);
-        background-size: 200%;
-        animation: slideGradient 4s linear infinite;
-    }
+    border: none;
+
+    padding: 0.3rem 0.5rem;
+
+    transition: none;
+}
+
+.nav a:hover {
+    color: #b9a7ff;
+    text-decoration: underline;
+}
+
+.nav a.active {
+    color: #ffffff;
+
+    border-bottom: 1px solid #7b5cff;
+}
+
 
     .burger {
         display: none;
