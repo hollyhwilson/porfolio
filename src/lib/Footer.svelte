@@ -1,5 +1,5 @@
 <footer class="footer">
-    <p>&copy; 2025 Starter Kit. Inspired by mindful design and resilient development.</p>
+    <p>&copy; 2026 Holly Wilson. Web portfolio site.</p>
 </footer>
 
 
@@ -10,14 +10,15 @@
         text-align: center;
         font-family: var(--font-body);
         font-size: var(--font-sm);
-        color: var(--text-tertiary);
-        background-color: var(--color-surface);
+        color: #2a1f3d;
+        background-color: var(--color-background);
         border-top: var(--border-default);
         box-shadow: var(--shadow-sm);
         position: relative;
         z-index: 10;
         animation: fadeInFooter var(--transition-slow) ease-in-out;
     }
+    
 
     .footer::before {
         content: '';
@@ -26,7 +27,6 @@
         left: 0;
         height: 3px;
         width: 100%;
-        background: var(--gradient-brand);
         animation: gradientScroll 6s linear infinite;
     }
 

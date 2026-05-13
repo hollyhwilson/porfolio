@@ -27,9 +27,13 @@
 </svelte:head>
 
 <section class="home">
+   
     <div class="hero">
-        <h1>HOLLY WILSON</h1>
-        <p>portfolio / design / experiments / code</p>
+        <img
+        class="hero-title"
+        src="images/holly.png"
+        alt="Holly Portfolio"
+         />
     </div>
 
     <div class="links">
@@ -41,36 +45,35 @@
 <style>
     .home {
         min-height: 100vh;
+
         display: flex;
         flex-direction: column;
-        justify-content: center;
+
         align-items: center;
+
+        padding-top: 4rem;
 
         background: #0b0a10;
         color: #f2f2f2;
+
         text-align: center;
     }
 
-    .hero h1 {
-        font-family: Impact, Anton, sans-serif;
-        font-size: clamp(3rem, 6vw, 6rem);
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        border: 2px solid rgba(255,255,255,0.15);
-        padding: 1rem 2rem;
-        background: #0e0b14;
-    }
+    .hero-title {
+        display: block;
 
-    .hero p {
-        margin-top: 1rem;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        opacity: 0.7;
+        width: min(900px, 90vw);
+
+        margin: 0 auto;
+
+        object-fit: contain;
     }
 
     .links {
-        margin-top: 2rem;
+        margin-top: 5rem;
+
         display: flex;
+        
         gap: 1rem;
     }
 

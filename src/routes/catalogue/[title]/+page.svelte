@@ -36,25 +36,24 @@
 
 
 <svelte:head>
-	<title>{item.title} | Catalogue</title>
+	<title>{item.title} | My Work </title>
 </svelte:head>
 
 
 <section class="item-detail">
 	<div class="detail-content">
-		<img class="hero-image" src={asset(item.image)} alt={`Image for ${item.title}`} />
-
+		{#if item.type === 'image-duo' && item.images}
+    <div class="image-duo">
+        <img src={item.images[0]} alt={item.title} />
+        <img src={item.images[1]} alt={item.title} />
+    </div>
+{:else}
+    <img class="hero-image" src={item.image} alt={`Image for ${item.title}`} />
+{/if}
 		<h1>{item.title}</h1>
 		<p class="category">{item.category}</p>
 		<p class="description">{item.description}</p>
 
-		{#if item.tags.length}
-			<ul class="tags">
-				{#each item.tags as tag}
-					<li class="tag">{tag}</li>
-				{/each}
-			</ul>
-		{/if}
 	</div>
 </section>
 
@@ -73,7 +72,7 @@
 						<CatalogueCard
 							title={item.title}
 							description={item.description}
-							image={item.image}
+							image={item.image ?? item.images?.[0]}
 							category={item.category}
 							tags={item.tags}
                         	animationDelay={index * 100}
@@ -123,6 +122,24 @@
     border-radius: 0px; /* important: remove softness */
 }
 
+.image-duo {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 1rem;
+}
+
+.image-duo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    border: 2px solid #2a1f3d;
+}
+
 	.detail-content h1 {
     margin: 0;
 
@@ -150,25 +167,6 @@
 	.description {
 		margin: 0; /* Remove extra margins */
 		line-height: 1.65;
-	}
-
-	.tags {
-		list-style: none;
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--space-xs) var(--space-sm); /* vertical and horizontal gap */
-		margin: 0; /* Collapse default margins */
-		padding: 0;
-	}
-
-	.tag {
-		padding: 0.25rem 0.5rem;
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-sm);
-		font-size: var(--font-sm);
-		color: var(--text-secondary);
-		white-space: nowrap; /* Prevent tags themselves from wrapping mid-word */
 	}
 
 	/* Related Section */
