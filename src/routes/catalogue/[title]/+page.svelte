@@ -1,7 +1,7 @@
 <script>
     // Bring in the navigation helper
     import { fade } from 'svelte/transition';
-    import { resolve, asset } from '$app/paths';
+    import { resolve } from '$app/paths';
 	import { goto } from '$app/navigation';
 	import { catalogue } from '$lib/stores';
 	import { CatalogueCard } from '$lib/components';
@@ -47,13 +47,21 @@
         <img src={item.images[0]} alt={item.title} />
         <img src={item.images[1]} alt={item.title} />
     </div>
-{:else}
-    <img class="hero-image" src={item.image} alt={`Image for ${item.title}`} />
-{/if}
+  {:else}
+    <img class="hero-image" 
+	src={item.image} 
+	alt={`Image for ${item.title}`} 
+	/>
+  {/if}
 		<h1>{item.title}</h1>
-		<p class="category">{item.category}</p>
-		<p class="description">{item.description}</p>
 
+		<p class="category">{item.category}</p>
+	 	
+		{#if item.description}
+         <p class="description">{item.description}</p>
+        {/if}
+
+		
 	</div>
 </section>
 
@@ -194,7 +202,25 @@
 		justify-items: center;
 	}
 
-	
+	.image-duo {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 1rem;
+
+        width: 100%;
+    }
+
+   .image-duo img {
+        width: 100%;
+
+        aspect-ratio: 4 / 5;
+
+        object-fit: cover;
+
+        border: 2px solid #2a1f3d;
+}
 
 	/* Mobile adjustments */
 	@media (max-width: 768px) {

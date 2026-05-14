@@ -8,8 +8,11 @@ export function load({ params })
 {
   const title = decodeURIComponent(params.title);
 	const allItems = get(catalogue);
-	const item = allItems.find((i) => i.title === title);
-
+const item = allItems.find(
+    (i) =>
+        i.title.toLowerCase() ===
+        decodeURIComponent(title).toLowerCase()
+);
   if (!item) {
     throw error(404, 'Catalogue item not found');
   }

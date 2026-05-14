@@ -67,6 +67,7 @@ const initialCatalogue = [
         id: "9",
         type:  "image-duo",
         category: "college",
+         image: "/images/work/college/poster1.png",
         images: [
           "/images/work/college/poster1.png",
           "/images/work/college/poster2.png"
