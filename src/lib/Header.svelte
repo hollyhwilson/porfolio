@@ -1,8 +1,30 @@
 <script>
-    import Navigation from './Navigation.svelte';
+  import Navigation from './Navigation.svelte';
+  import { onMount } from 'svelte';
+
+  let lastScrollY = 0;
+  let hidden = false;
+
+  onMount(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+
+      if (currentY > lastScrollY && currentY > 80) {
+        hidden = true; // scrolling down
+      } else {
+        hidden = false; // scrolling up
+      }
+
+      lastScrollY = currentY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
 </script>
 
-<header class="header">
+<header class="header" class:hidden={hidden}>
 
     <div class="title-group">
         <h1>Holly</h1>
@@ -25,14 +47,21 @@
     padding: 1rem 2rem;
 
     background: #0b0b0f;
-
     border-bottom: 2px solid #2a1f3d;
+
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    z-index: 1000;
+
+    backdrop-filter: blur(10px);
+    background: rgba(11, 11, 15, 0.85);
 }
 
-/* REMOVE noise completely */
-/* REMOVE header::before */
 
-/* LEFT TITLE BLOCK */
+.header.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
 .title-group {
     display: flex;
     flex-direction: column;
