@@ -109,7 +109,7 @@
         letter-spacing: 2px;
 
         color: #f2f2f2;
-   
+        
         text-align: center;
 
         margin: 4rem 0 0;
