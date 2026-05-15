@@ -73,7 +73,7 @@
 
             <a
                 class="project-item"
-                href={item.github}
+                href={item.github || item.codeberg || item.penpot || item.onedrive|| "#"}
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -83,7 +83,7 @@
                     <p>{item.description}</p>
                 </div>
 
-                <span>↗</span>
+                <span>VIEW</span>
 
             </a>
 
@@ -287,29 +287,43 @@
 }
 
 .project-item h3 {
-    margin: 0 0 0.35rem;
+    margin: 0 0 0.45rem;
 
-    font-size: 1rem;
+    font-family: Impact, Anton, sans-serif;
 
-    letter-spacing: 1px;
+    font-size: 1.4rem;
+
+    letter-spacing: 2px;
 
     text-transform: uppercase;
+
+    color: #f2f2f2;
 }
 
 .project-item p {
     margin: 0;
 
-    font-size: 0.9rem;
+    font-size: 0.78rem;
 
-    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
 
-    max-width: 60ch;
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: rgba(255,255,255,0.55);
 }
 
 .project-item span {
-    font-size: 1.4rem;
+    font-size: 0.9rem;
 
-    color: #7b5cff;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #8f7cff;
+
+    opacity: 0.7;
 }
 
     @media (max-width: 640px) {

@@ -65,15 +65,20 @@ const initialCatalogue = [
 
     {
         id: "9",
-        type:  "image-duo",
+        title: "Typography Project 2026",
+        description: "Made my own pixelated typeface, using FontStruct. Then when on to design a typographic poster using said typeface.",
         category: "college",
-         image: "/images/work/college/poster1.png",
-        images: [
-          "/images/work/college/poster1.png",
-          "/images/work/college/poster2.png"
-        ],
-        title: "Typography Project 2026"
-}
+        onedrive:"https://setuo365-my.sharepoint.com/:f:/g/personal/colm_oneill_setu_ie/IgDAEZOf8Gx0S6JQ_FstV6rXAe97yFMA13LUh1ysxaRBboo?e=SifDoN"
+       
+    },
+
+    {
+        id: "10",
+        title: "UI Prototyping To-do app",
+        description: "One of my favourite projects, designing a to-do app specifically tailored to my own needs, with clear UI.",
+        category: "college",
+        penpot: "https://design.penpot.app/#/view?file-id=72ad1239-4f5c-8115-8007-a6d8e44fbcec&page-id=72ad1239-4f5c-8115-8007-a6d8e44fd47d&section=interactions&index=0&share-id=bdb38471-86c5-8118-8008-04fd50b22de1"
+    }
 
 ];
 

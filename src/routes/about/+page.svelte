@@ -208,7 +208,7 @@
 }
 
 .socials-header h2 {
-  font-family: 'Space Grotesk', sans-serif; /* matches your skills */
+  font-family: 'Space Grotesk', sans-serif; 
   font-size: 0.75rem;
  display: inline-block;
 
