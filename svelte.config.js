@@ -20,7 +20,7 @@ const config = {
 
     // Important for GitHub Project Pages
     paths: {
-      base: '/porfolio'
+      base: process.env.BASE_PATH || ''
     }
   }
 };
