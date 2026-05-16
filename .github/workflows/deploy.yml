@@ -1,35 +1,54 @@
-name: Deploy static site to Pages
+# Workflow to build and publish the site to GitHub Pages
 
+name: Deploy to GitHub Pages
+
+# Trigger the workflow on pushes to the main branch
 on:
   push:
-    branches: [master]
+    branches: 'master'
 
+# Grant minimal permissions needed by the workflow
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read       # allow reading repo contents for checkout
+  pages: write         # enable publishing to GitHub Pages
+  id-token: write      # required for actions/deploy-pages authorisation
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  # First job builds the static site
+  build_site:
+    runs-on: ubuntu-latest   # use latest Ubuntu runner
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4  # fetch the repository code
 
-      - uses: actions/setup-node@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20       # specify Node.js version
+          cache: npm             # cache npm dependencies for speed
 
-      - run: npm install
-      - run: npm run build
+      - name: Install dependencies
+        run: npm install        # install project npm packages
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Build site
+        env:
+          # BASE_PATH used by build script to set the correct public path
+          BASE_PATH: '/${{ github.event.repository.name }}'
+        run: npm run build      # execute build command defined in package.json
+
+      - name: Upload build artefacts
+        uses: actions/upload-pages-artifact@v4
         with:
-          path: build
+          path: 'build/'        # directory containing the generated site
 
+  # Second job deploys the previously built site to GitHub Pages
   deploy:
-    needs: build
-    runs-on: ubuntu-latest
+    needs: build_site            # ensure build_site completes first
+    runs-on: ubuntu-latest       # run on Ubuntu runner as well
     environment:
-      name: github-pages
+      name: github-pages         # use the GitHub Pages environment
+      url: ${{ steps.deployment.outputs.page_url }}  # output deployment URL
     steps:
-      - uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4  # official action to publish pages
