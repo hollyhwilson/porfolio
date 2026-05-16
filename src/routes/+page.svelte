@@ -27,6 +27,7 @@
 </svelte:head>
 
 <section class="home">
+
     <div class="hero">
         <h1 class="hero-title"> Holly</h1>
     </div>
